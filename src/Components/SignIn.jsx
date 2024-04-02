@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import setupAxiosInterceptors from '../AxiosIntersepter';
+import { Link } from "react-router-dom";
 
 setupAxiosInterceptors()
 
@@ -18,8 +19,8 @@ export const SignIn = () => {
         try {
             // Send sign-in request
             const response = await axios.post('https://node-product-distribution-backend.agiletechnologies.in/admin/login', { email, password });
-            const token = response.data.data.authToken; // Assuming the token is returned in the response
-            localStorage.setItem('token', token); // Store token in localStorage
+            const token = response.data.data.authToken; 
+            localStorage.setItem('token', token); 
             // Redirect to protected page
             window.location.href = '/protected';
         } catch (error) {
@@ -31,6 +32,16 @@ export const SignIn = () => {
     return (
         <div className="signin">
             <div>
+             <div>
+                <button>
+                    <Link to={"/userList"}>UserList</Link>
+                </button>
+             </div>
+             <div>
+                <button>
+                    <Link to={"/addUser"}>AddUser</Link>
+                </button>
+             </div>
             <h2>Welcome To Admin</h2>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <form onSubmit={handleSubmit}>
