@@ -28,7 +28,7 @@ export const UserList = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.post(
-          `https://node-product-distribution-backend.agiletechnologies.in/d/user/list`,
+          `https://node-product-distribution-backend.agiletechnologies.in/admin/user/list`,
           {
             page: currentPage,
             search: searchTerm
