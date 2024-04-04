@@ -8,7 +8,6 @@ import { AddUser } from './Components/AddUser';
 import setupAxiosInterceptors from './AxiosIntersepter';
 
 setupAxiosInterceptors()
-const AuthContext = React.createContext();
 
 // PrivateRoute Component
 const PrivateRoute = ({ element }) => {
@@ -18,7 +17,6 @@ const PrivateRoute = ({ element }) => {
 
 const App = () => {
   return (
-    <AuthContext.Provider>
       <Router>
         <Routes>
           <Route path="/" element={<SignIn />} />
@@ -37,7 +35,6 @@ const App = () => {
          
         </Routes>
       </Router>
-    </AuthContext.Provider>
   );
 };
 

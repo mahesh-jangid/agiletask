@@ -85,7 +85,7 @@ export const UserList = () => {
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user.id}>
+              <tr key={user._id}>
                 <td>{user.userName}</td>
                 <td>{user.mobileNo}</td>
                 <td>{user.point}</td>
