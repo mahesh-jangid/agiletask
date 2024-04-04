@@ -15,18 +15,22 @@ export const SignIn = () => {
         if (!email || !password) {
             setError('Email and password are required.');
             return;
-        }
-        try {
-            // Send sign-in request
-            const response = await axios.post('https://node-product-distribution-backend.agiletechnologies.in/admin/login', { email, password });
-            const token = response.data.data.authToken; 
-            localStorage.setItem('token', token); 
-            // Redirect to protected page
-            window.location.href = '/protected';
-        } catch (error) {
-            console.error('Sign in failed', error);
+        }else if(email === "rootadmin@yopmail.com" && password === "123456"){
+            try {
+                // Send sign-in request
+                const response = await axios.post('https://node-product-distribution-backend.agiletechnologies.in/admin/login', { email, password });
+                const token = response.data.data.authToken; 
+                localStorage.setItem('token', token); 
+                // Redirect to protected page
+                window.location.href = '/protected';
+            } catch (error) {
+                console.error('Sign in failed', error);
+                setError('Sign in failed. Please check your credentials and try again.');
+            }
+        }else{
             setError('Sign in failed. Please check your credentials and try again.');
         }
+      
     };
 
     return (
